@@ -6,8 +6,8 @@ import { Button } from "@/components/ui/button"
 import { Label } from "@/components/ui/label";
 import { CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@radix-ui/react-tabs";
-import { Mail, Lock, User, Eye, EyeOff, CheckCircle } from "lucide-react";
-import logo from "../../assets/notakita.png"
+import { Mail, Lock, User, Eye, EyeOff, CheckCircle, FilePlus, BarChart3 } from "lucide-react";
+import logo from "../../assets/notakita2.png"
 
 
 export default function Auth() {
@@ -15,11 +15,92 @@ export default function Auth() {
   const [showConfirmPassword, setShowConfirmPassword] = useState(false)
 
   return (
-    <div className="min-h-screen flex bg-gradient-to-br from-[#ecbb6b] via-[#f8d290] to-[#F8F3E8] items-center justify-center relative">
+    <div
+      className="min-h-screen flex items-center justify-center relative overflow-hidden"
+      style={{
+        background: "linear-gradient(180deg, #b3c6e6 0%, #e6e6fa 60%, #f8d6e6 100%)"
+      }}
+    >
+      {/* Efek gelombang atas */}
+      <svg
+        className="absolute top-0 left-0 w-full h-[180px] z-0"
+        viewBox="0 0 1440 180"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        preserveAspectRatio="none"
+      >
+        <path
+          d="M0,80 C360,180 1080,0 1440,100 L1440,0 L0,0 Z"
+          fill="#4f8edc"
+          fillOpacity="0.18"
+        />
+        <path
+          d="M0,120 C400,60 1040,200 1440,80 L1440,0 L0,0 Z"
+          fill="#4f8edc"
+          fillOpacity="0.12"
+        />
+      </svg>
+
+      {/* Efek gelombang bawah */}
+      <svg
+        className="absolute bottom-0 left-0 w-full h-[200px] z-0"
+        viewBox="0 0 1440 200"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        preserveAspectRatio="none"
+      >
+        <path
+          d="M0,100 C400,200 1040,0 1440,120 L1440,200 L0,200 Z"
+          fill="#4f8edc"
+          fillOpacity="0.18"
+        />
+        <path
+          d="M0,160 C360,60 1080,200 1440,100 L1440,200 L0,200 Z"
+          fill="#4f8edc"
+          fillOpacity="0.12"
+        />
+      </svg>
+
+      {/* Gradient warna biru tengah*/}
+      <div
+        className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] pointer-events-none"
+        style={{
+          background: "radial-gradient(ellipse at center, #4f8edcbb 0%, #e3f0ff00 80%)",
+          filter: "blur(70px)",
+          opacity: 0.7,
+        }}
+      />
+      {/* Gradient warna biru muda di kanan */}
+      <div
+        className="absolute right-0 top-1/3 w-[400px] h-[250px] pointer-events-none"
+        style={{
+          background: "radial-gradient(ellipse at center, #7ecbff88 0%, #e3f0ff00 80%)",
+          filter: "blur(60px)",
+          opacity: 0.5,
+        }}
+      />
+      {/* Gradient warna merah muda di kiri bawah */}
+      <div
+        className="absolute left-0 bottom-0 w-[350px] h-[200px] pointer-events-none"
+        style={{
+          background: "radial-gradient(ellipse at center, #ffb6c1aa 0%, #e3f0ff00 80%)",
+          filter: "blur(70px)",
+          opacity: 0.6,
+        }}
+      />
+      {/* Gradient warna ungu soft di atas */}
+      <div
+        className="absolute left-1/4 top-0 w-[300px] h-[180px] pointer-events-none"
+        style={{
+          background: "radial-gradient(ellipse at center, #c7b6ff88 0%, #e3f0ff00 80%)",
+          filter: "blur(60px)",
+          opacity: 0.5,
+        }}
+      />
       {/* Glassmorphism Card 2 Grid */}
-      <div className="backdrop-blur-xl bg-white/30 border border-white/40 shadow-2xl rounded-2xl w-full max-w-6xl p-0 flex flex-col md:flex-row overflow-hidden">
+      <div className="backdrop-blur-[32px] bg-white/20 border border-white/80 shadow-2xl shadow-white/30 ring-1 ring-white/40 rounded-[2rem] w-full max-w-[1100px] p-0 flex flex-col md:flex-row-reverse overflow-hidden relative before:content-[''] before:absolute before:inset-0 before:rounded-[2rem] before:pointer-events-none before:shadow-[inset_0_4px_64px_0_rgba(255,255,255,0.45)]">
         {/* Login/Register */}
-        <div className="flex-1 flex flex-col justify-center">
+        <div className="flex-1 flex flex-col justify-center px-20 py-20">
           <CardHeader className="relative text-center pb-6 pt-8">
             <CardTitle className="text-2xl font-semibold text-gray-800 drop-shadow-sm">Welcome Back</CardTitle>
             <CardDescription className="text-gray-800/80 text-base">
@@ -33,50 +114,50 @@ export default function Auth() {
               <TabsList className="grid w-full grid-cols-2 bg-white/20 backdrop-blur-xl border border-white/30 rounded-xl p-1 shadow-inner">
                 <TabsTrigger
                   value="login"
-                  className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-yellow-500/90 data-[state=active]:to-yellow-600/90 data-[state=active]:text-white data-[state=active]:shadow-xl data-[state=active]:backdrop-blur-sm transition-all duration-500 rounded-lg font-medium"
+                  className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-blue-400/80 data-[state=active]:to-purple-400/80 data-[state=active]:text-white data-[state=active]:shadow-xl data-[state=active]:shadow-blue-200/40 data-[state=active]:backdrop-blur-sm text-blue-700 transition-all duration-500 rounded-lg font-medium"
                 >
                   Sign In
                 </TabsTrigger>
                 <TabsTrigger
                   value="register"
-                  className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-yellow-500/90 data-[state=active]:to-yellow-600/90 data-[state=active]:text-white data-[state=active]:shadow-xl data-[state=active]:backdrop-blur-sm transition-all duration-500 rounded-lg font-medium"
+                  className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-blue-400/80 data-[state=active]:to-purple-400/80 data-[state=active]:text-white data-[state=active]:shadow-xl data-[state=active]:shadow-blue-200/40 data-[state=active]:backdrop-blur-sm text-blue-700 transition-all duration-500 rounded-lg font-medium"
                 >
                   Sign Up
                 </TabsTrigger>
               </TabsList>
 
-              <TabsContent value="login" className="space-y-5 mt-8">
+              <TabsContent value="login" className="space-y-5 mt-8 text-blue-900">
                 <div className="space-y-3">
-                  <Label htmlFor="email" className="text-gray-800 font-semibold text-sm">
+                  <Label htmlFor="email" className="text-blue-900 font-semibold text-sm">
                     Email Address
                   </Label>
                   <div className="relative group">
-                    <div className="absolute inset-0 bg-gradient-to-r from-yellow-400/20 to-yellow-600/20 rounded-xl blur opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <div className="absolute inset-0 bg-gradient-to-r from-blue-300/20 to-purple-300/20 rounded-xl blur opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     <div className="relative">
                       <Mail className="absolute left-4 top-1/2 transform -translate-y-1/2 text-black-400 w-5 h-5 z-10" />
                       <Input
                         id="email"
                         type="email"
                         placeholder="Enter your email address"
-                        className="pl-12 pr-4 py-3 bg-white/30 backdrop-blur-xl border border-white/40 focus:border-yellow-400/60 focus:ring-2 focus:ring-red-400/20 text-gray-800 placeholder:text-black-400/70 rounded-xl shadow-inner transition-all duration-300"
+                        className="pl-12 pr-4 py-3 bg-white/30 backdrop-blur-xl border border-blue-200/60 focus:border-blue-400/80 focus:ring-2 focus:ring-purple-200/30 text-blue-900 placeholder:text-blue-400/70 rounded-xl shadow-inner transition-all duration-300"
                       />
                     </div>
                   </div>
                 </div>
 
                 <div className="space-y-3">
-                  <Label htmlFor="password" className="text-gray-800 font-semibold text-sm">
+                  <Label htmlFor="password" className="text-blue-900 font-semibold text-sm">
                     Password
                   </Label>
                   <div className="relative group">
-                    <div className="absolute inset-0 bg-gradient-to-r from-yellow-400/20 to-yellow-600/20 rounded-xl blur opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <div className="absolute inset-0 bg-gradient-to-r from-blue-300/20 to-purple-300/20 rounded-xl blur opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     <div className="relative">
                       <Lock className="absolute left-4 top-1/2 transform -translate-y-1/2 text-black-400 w-5 h-5 z-10" />
                       <Input
                         id="password"
                         type={showPassword ? "text" : "password"}
                         placeholder="Enter your password"
-                        className="pl-12 pr-12 py-3 bg-white/30 backdrop-blur-xl border border-white/40 focus:border-yellow-400/60 focus:ring-2 focus:ring-yellow-400/20 text-yellow-800 placeholder:text-black-400/70 rounded-xl shadow-inner transition-all duration-300"
+                        className="pl-12 pr-12 py-3 bg-white/30 backdrop-blur-xl border border-blue-200/60 focus:border-blue-400/80 focus:ring-2 focus:ring-purple-200/30 text-blue-900 placeholder:text-blue-400/70 rounded-xl shadow-inner transition-all duration-300"
                       />
                       <button
                         type="button"
@@ -90,74 +171,74 @@ export default function Auth() {
                 </div>
 
                 <div className="flex items-center justify-between text-sm pt-2">
-                  <label className="flex items-center space-x-3 text-yellow-700 cursor-pointer">
+                  <label className="flex items-center space-x-3 text-blue-900 cursor-pointer">
                     <div className="relative">
                       <input type="checkbox" className="sr-only peer" />
-                      <div className="w-4 h-4 bg-white/30 backdrop-blur-sm border border-white/40 rounded peer-checked:bg-gradient-to-r peer-checked:from-gray-500 peer-checked:to-gray-600 transition-all duration-300" />
-                      <CheckCircle className="absolute inset-0 w-4 h-4 text-white opacity-0 peer-checked:opacity-100 transition-opacity duration-300" />
+                      <div className="w-4 h-4 bg-white/30 backdrop-blur-sm border border-blue-200/60 rounded peer-checked:bg-gradient-to-r peer-checked:from-blue-400 peer-checked:to-purple-400 transition-all duration-300" />
+                      <CheckCircle className="absolute inset-0 w-4 h-4 text-blue-500 opacity-0 peer-checked:opacity-100 transition-opacity duration-300" />
                     </div>
                     <span className="font-medium">Remember me</span>
                   </label>
-                  <button className="text-yellow-600 hover:text-yellow-800 transition-colors font-medium hover:underline">
+                  <button className="text-blue-500 hover:text-purple-700 transition-colors font-medium hover:underline">
                     Forgot password?
                   </button>
                 </div>
 
-                <Button className="w-full mt-6 py-3 bg-gradient-to-r from-yellow-500 to-yellow-600 hover:from-yellow-600 hover:to-yellow-700 text-white font-semibold shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-[1.02] rounded-xl backdrop-blur-sm">
+                <Button className="w-full mt-6 py-3 bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white font-semibold shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-[1.02] rounded-xl backdrop-blur-sm">
                   Access Dashboard
                 </Button>
               </TabsContent>
 
-              <TabsContent value="register" className="space-y-5 mt-8">
+              <TabsContent value="register" className="space-y-5 mt-8 text-blue-900">
                 <div className="space-y-3">
-                  <Label htmlFor="fullName" className="text-gray-800 font-semibold text-sm">
+                  <Label htmlFor="fullName" className="text-blue-900 font-semibold text-sm">
                     Full Name
                   </Label>
                   <div className="relative group">
-                    <div className="absolute inset-0 bg-gradient-to-r from-yellow-400/20 to-yellow-600/20 rounded-xl blur opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <div className="absolute inset-0 bg-gradient-to-r from-blue-300/20 to-purple-300/20 rounded-xl blur opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     <div className="relative">
                       <User className="absolute left-4 top-1/2 transform -translate-y-1/2 text-black-400 w-5 h-5 z-10" />
                       <Input
                         id="fullName"
                         type="text"
                         placeholder="Enter your full name"
-                        className="pl-12 pr-4 py-3 bg-white/30 backdrop-blur-xl border border-white/40 focus:border-black-400/60 focus:ring-2 focus:ring-black-400/20 text-black-800 placeholder:text-black-400/70 rounded-xl shadow-inner transition-all duration-300"
+                        className="pl-12 pr-4 py-3 bg-white/30 backdrop-blur-xl border border-blue-200/60 focus:border-blue-400/80 focus:ring-2 focus:ring-purple-200/30 text-blue-900 placeholder:text-blue-400/70 rounded-xl shadow-inner transition-all duration-300"
                       />
                     </div>
                   </div>
                 </div>
 
                 <div className="space-y-3">
-                  <Label htmlFor="registerEmail" className="text-gray-800 font-semibold text-sm">
+                  <Label htmlFor="registerEmail" className="text-blue-900 font-semibold text-sm">
                     Email Address
                   </Label>
                   <div className="relative group">
-                    <div className="absolute inset-0 bg-gradient-to-r from-yellow-400/20 to-yellow-600/20 rounded-xl blur opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <div className="absolute inset-0 bg-gradient-to-r from-blue-300/20 to-purple-300/20 rounded-xl blur opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     <div className="relative">
                       <Mail className="absolute left-4 top-1/2 transform -translate-y-1/2 text-black-400 w-5 h-5 z-10" />
                       <Input
                         id="registerEmail"
                         type="email"
                         placeholder="Enter your email address"
-                        className="pl-12 pr-4 py-3 bg-white/30 backdrop-blur-xl border border-white/40 focus:border-black-400/60 focus:ring-2 focus:ring-black-400/20 text-black-800 placeholder:text-black-400/70 rounded-xl shadow-inner transition-all duration-300"
+                        className="pl-12 pr-4 py-3 bg-white/30 backdrop-blur-xl border border-blue-200/60 focus:border-blue-400/80 focus:ring-2 focus:ring-purple-200/30 text-blue-900 placeholder:text-blue-400/70 rounded-xl shadow-inner transition-all duration-300"
                       />
                     </div>
                   </div>
                 </div>
 
                 <div className="space-y-3">
-                  <Label htmlFor="registerPassword" className="text-gray-800 font-semibold text-sm">
+                  <Label htmlFor="registerPassword" className="text-blue-900 font-semibold text-sm">
                     Password
                   </Label>
                   <div className="relative group">
-                    <div className="absolute inset-0 bg-gradient-to-r from-yellow-400/20 to-yellow-600/20 rounded-xl blur opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <div className="absolute inset-0 bg-gradient-to-r from-blue-300/20 to-purple-300/20 rounded-xl blur opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     <div className="relative">
                       <Lock className="absolute left-4 top-1/2 transform -translate-y-1/2 text-black-400 w-5 h-5 z-10" />
                       <Input
                         id="registerPassword"
                         type={showPassword ? "text" : "password"}
                         placeholder="Create a secure password"
-                        className="pl-12 pr-12 py-3 bg-white/30 backdrop-blur-xl border border-white/40 focus:border-black-400/60 focus:ring-2 focus:ring-red-400/20 text-black-800 placeholder:text-black-400/70 rounded-xl shadow-inner transition-all duration-300"
+                        className="pl-12 pr-12 py-3 bg-white/30 backdrop-blur-xl border border-blue-200/60 focus:border-blue-400/80 focus:ring-2 focus:ring-purple-200/30 text-blue-900 placeholder:text-blue-400/70 rounded-xl shadow-inner transition-all duration-300"
                       />
                       <button
                         type="button"
@@ -171,18 +252,18 @@ export default function Auth() {
                 </div>
 
                 <div className="space-y-3">
-                  <Label htmlFor="confirmPassword" className="text-gray-800 font-semibold text-sm">
+                  <Label htmlFor="confirmPassword" className="text-blue-900 font-semibold text-sm">
                     Confirm Password
                   </Label>
                   <div className="relative group">
-                    <div className="absolute inset-0 bg-gradient-to-r from-yellow-400/20 to-yellow-600/20 rounded-xl blur opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <div className="absolute inset-0 bg-gradient-to-r from-blue-300/20 to-purple-300/20 rounded-xl blur opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     <div className="relative">
                       <Lock className="absolute left-4 top-1/2 transform -translate-y-1/2 text-black-400 w-5 h-5 z-10" />
                       <Input
                         id="confirmPassword"
                         type={showConfirmPassword ? "text" : "password"}
                         placeholder="Confirm your password"
-                        className="pl-12 pr-12 py-3 bg-white/30 backdrop-blur-xl border border-white/40 focus:border-black-400/60 focus:ring-2 focus:ring-yellow-400/20 text-black-800 placeholder:text-black-400/70 rounded-xl shadow-inner transition-all duration-300"
+                        className="pl-12 pr-12 py-3 bg-white/30 backdrop-blur-xl border border-blue-200/60 focus:border-blue-400/80 focus:ring-2 focus:ring-purple-200/30 text-blue-900 placeholder:text-blue-400/70 rounded-xl shadow-inner transition-all duration-300"
                       />
                       <button
                         type="button"
@@ -196,24 +277,24 @@ export default function Auth() {
                 </div>
 
                 <div className="flex items-start space-x-3 text-sm pt-2">
-                  <div className="relative mt-0.5">
+                  <div className="relative mt-0.5 cursor-pointer">
                     <input type="checkbox" className="sr-only peer" />
-                    <div className="w-4 h-4 bg-white/30 backdrop-blur-sm border border-white/40 rounded peer-checked:bg-gradient-to-r peer-checked:from-gray-500 peer-checked:to-gray-600 transition-all duration-300" />
-                    <CheckCircle className="absolute inset-0 w-4 h-4 text-white opacity-0 peer-checked:opacity-100 transition-opacity duration-300" />
+                    <div className="w-4 h-4 bg-white/30 backdrop-blur-sm border border-blue-200/60 rounded peer-checked:bg-gradient-to-r peer-checked:from-blue-400 peer-checked:to-purple-400 transition-all duration-300" />
+                    <CheckCircle className="absolute inset-0 w-4 h-4 text-blue-500 opacity-0 peer-checked:opacity-100 transition-opacity duration-300" />
                   </div>
                   <span className="text-gray-700 leading-relaxed">
                     I agree to the{" "}
-                    <button className="text-red-600 hover:text-gray-800 underline transition-colors font-medium">
+                    <button className="text-blue-600 hover:text-purple-700 hover:underline transition-colors font-medium">
                       Terms of Service
                     </button>{" "}
                     and{" "}
-                    <button className="text-red-600 hover:text-red-800 underline transition-colors font-medium">
+                    <button className="text-blue-600 hover:text-purple-700 hover:underline transition-colors font-medium">
                       Privacy Policy
                     </button>
                   </span>
                 </div>
 
-                <Button className="w-full mt-6 py-3 bg-gradient-to-r from-yellow-500 to-yellow-600 hover:from-yellow-600 hover:to-yellow-700 text-white font-semibold shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-[1.02] rounded-xl backdrop-blur-sm">
+                <Button className="w-full mt-6 py-3 bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white font-semibold shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-[1.02] rounded-xl backdrop-blur-sm">
                   Create Account
                 </Button>
               </TabsContent>
@@ -235,7 +316,7 @@ export default function Auth() {
               <div className="mt-6 grid grid-cols-2 gap-4">
                 <Button
                   variant="outline"
-                  className="relative group bg-white/25 backdrop-blur-xl border border-white/40 hover:bg-white/35 text-black hover:text-yellow-800 transition-all duration-300 py-3 rounded-xl font-medium overflow-hidden"
+                  className="relative group bg-white/30 backdrop-blur-xl border border-blue-200/60 hover:bg-white/40 text-blue-700 hover:text-purple-700 transition-all duration-300 py-3 rounded-xl font-medium overflow-hidden shadow-md"
                 >
                   <div className="absolute inset-0 bg-gradient-to-r from-yellow-400/10 to-yellow-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   <svg className="relative w-5 h-5 mr-2" viewBox="0 0 24 24">
@@ -261,7 +342,7 @@ export default function Auth() {
 
                 <Button
                   variant="outline"
-                  className="relative group bg-white/25 backdrop-blur-xl border border-white/40 hover:bg-white/35 text-black hover:text-gray-800 transition-all duration-300 py-3 rounded-xl font-medium overflow-hidden"
+                  className="relative group bg-white/30 backdrop-blur-xl border border-blue-200/60 hover:bg-white/40 text-blue-700 hover:text-purple-700 transition-all duration-300 py-3 rounded-xl font-medium overflow-hidden shadow-md"
                 >
                   <div className="absolute inset-0 bg-gradient-to-r from-yellow-400/10 to-yellow-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   <svg className="relative w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
@@ -273,9 +354,26 @@ export default function Auth() {
             </div>
           </CardContent>
         </div>
-        {/* Logo/Image */}
-        <div className="hidden md:flex flex-1 items-center justify-center bg-white/20 border-l border-white/30">
-          <img src={logo} alt="Logo" className="max-w-[350px] w-full h-auto object-contain drop-shadow-xl" />
+        {/* Logo/Image*/}
+        <div className="hidden md:flex flex-1 flex-col items-center justify-center bg-white/20 border-l border-white/30">
+          <img src={logo} alt="Logo" className="max-w-[350px] w-full h-auto object-contain drop-shadow-xl mb-6" />
+          <div className="text-center">
+            <h3 className="text-xl font-semibold text-blue-700 mb-4">Invoice Management Platform</h3>
+            <div className="flex gap-6 justify-center text-blue-500">
+              <div className="flex items-center gap-2">
+                <FilePlus className="w-6 h-6" />
+                <span className="text-sm font-medium">Create</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <CheckCircle className="w-6 h-6" />
+                <span className="text-sm font-medium">Validate</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <BarChart3 className="w-6 h-6" />
+                <span className="text-sm font-medium">Report</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
