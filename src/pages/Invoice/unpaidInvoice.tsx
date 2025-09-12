@@ -1,14 +1,19 @@
 import React, { useState } from 'react'
-import { Pencil, Trash2, Eye, Search, X, Settings2, Funnel, Download } from "lucide-react";
-import { Button } from '@/components/ui/button';
+import { Pencil, Trash2, Eye, Search, Settings2, Funnel, ExternalLink } from "lucide-react";
 import { CalendarDropDown } from '@/components/calendarDropDown';
-import InvoiceCard from '@/components/InvoiceCard';
+import InvoiceTemplate from '@/components/InvoiceTemplate';
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 
 interface InvoiceItem {
   description: string;
-  unitCost: string;
+  unitCost: number;
   qty: number;
-  price: string;
+  price: number;
 }
 
 interface InvoiceData {
@@ -21,81 +26,126 @@ interface InvoiceData {
   publisherDesc: string;
   total: number;
   status: string;
-  balance: string;
+  balance: number;
   items: InvoiceItem[];
-  subtotal: string;
-  totalStr: string;
+  subtotal: number;
 }
 
 const unpaidInvoices: InvoiceData[] = [
   {
-    invoiceNumber: "INV-2024-001",
-    date: "2024-06-01",
-    dueDate: "2024-06-15",
-    client: "KBR E SPORT",
-    clientAddress: "Jl. Sudirman No. 1, Jakarta",
-    publisher: "DGM Group",
-    publisherDesc: "IT Solution Provider",
-    total: 12500,
+    invoiceNumber: "000001",
+    date: "6/12/2025",
+    dueDate: "12/12/2025",
+    client: "Toko Emas Sabar Jaya 2",
+    clientAddress: "Pasar Tumpang, Kabupaten Malang, Jawa Timur, Indonesia",
+    publisher: "Rofiq - DSS Staff",
+    publisherDesc: "Software Development Services, System Integration & Consulting",
+    total: 1900000,
     status: "Unpaid",
-    balance: "Rp 12.500.000",
+    balance: 1900000,
     items: [
-      { description: "Jasa Konsultasi", unitCost: "Rp 10.000.000", qty: 1, price: "Rp 10.000.000" },
-      { description: "Maintenance", unitCost: "Rp 2.500.000", qty: 1, price: "Rp 2.500.000" },
+      {
+        description: "Daily report on dashboard and dedicated page for details with grocery list of daily report and transaction",
+        unitCost: 600000,
+        qty: 1,
+        price: 600000,
+      },
+      {
+        description: "Gold weight conversion for each grocery category (24k) on dashboard and category page",
+        unitCost: 200000,
+        qty: 1,
+        price: 200000,
+      },
+      {
+        description: "Minimum purchase price for each different grocery category on penjualan page",
+        unitCost: 700000,
+        qty: 1,
+        price: 700000,
+      },
+      {
+        description: "Ringkasan laporan bulanan on dashboard",
+        unitCost: 200000,
+        qty: 1,
+        price: 200000,
+      },
+      {
+        description: "Filter Barang Terjual, belum terjual, lebur on Barang Masuk page",
+        unitCost: 200000,
+        qty: 1,
+        price: 200000,
+      },
     ],
-    subtotal: "Rp 12.500.000",
-    totalStr: "Rp 12.500.000",
+    subtotal: 1900000,
   },
   {
-    invoiceNumber: "INV-2024-002",
-    date: "2024-06-03",
-    dueDate: "2024-06-17",
-    client: "Pertamina",
-    clientAddress: "Jl. Medan Merdeka Timur No. 1, Jakarta",
-    publisher: "MegaCorp",
-    publisherDesc: "Oil & Gas",
-    total: 21000,
+    invoiceNumber: "000002",
+    date: "8/12/2025",
+    dueDate: "14/12/2025",
+    client: "PT. Maju Jaya",
+    clientAddress: "Jl. Sudirman No. 45, Surabaya, Jawa Timur, Indonesia",
+    publisher: "Ahmad - DSS Staff",
+    publisherDesc: "Software Development Services, System Integration & Consulting",
+    total: 1500000,
     status: "Unpaid",
-    balance: "Rp 21.000.000",
+    balance: 1500000,
     items: [
-      { description: "Distribusi", unitCost: "Rp 15.000.000", qty: 1, price: "Rp 15.000.000" },
-      { description: "IT Support", unitCost: "Rp 6.000.000", qty: 1, price: "Rp 6.000.000" },
+      {
+        description: "E-commerce website development with payment gateway integration",
+        unitCost: 800000,
+        qty: 1,
+        price: 800000,
+      },
+      {
+        description: "Mobile app development for Android and iOS",
+        unitCost: 700000,
+        qty: 1,
+        price: 700000,
+      },
     ],
-    subtotal: "Rp 21.000.000",
-    totalStr: "Rp 21.000.000",
+    subtotal: 1500000,
   },
   {
-    invoiceNumber: "INV-2024-003",
-    date: "2024-06-05",
-    dueDate: "2024-06-20",
-    client: "Shopee",
-    clientAddress: "Jl. Mangga Dua No. 2, Jakarta",
-    publisher: "LogiTech",
-    publisherDesc: "E-commerce",
-    total: 17800,
+    invoiceNumber: "000003",
+    date: "10/12/2025",
+    dueDate: "16/12/2025",
+    client: "CV. Berkah Teknologi",
+    clientAddress: "Jl. Gatot Subroto No. 123, Bandung, Jawa Barat, Indonesia",
+    publisher: "Sari - DSS Staff",
+    publisherDesc: "Software Development Services, System Integration & Consulting",
+    total: 2200000,
     status: "Unpaid",
-    balance: "Rp 17.800.000",
+    balance: 2200000,
     items: [
-      { description: "Cloud Service", unitCost: "Rp 10.000.000", qty: 1, price: "Rp 10.000.000" },
-      { description: "Delivery", unitCost: "Rp 7.800.000", qty: 1, price: "Rp 7.800.000" },
+      {
+        description: "Enterprise resource planning system development",
+        unitCost: 1200000,
+        qty: 1,
+        price: 1200000,
+      },
+      {
+        description: "Database optimization and performance tuning",
+        unitCost: 500000,
+        qty: 1,
+        price: 500000,
+      },
+      {
+        description: "Staff training and documentation",
+        unitCost: 500000,
+        qty: 1,
+        price: 500000,
+      },
     ],
-    subtotal: "Rp 17.800.000",
-    totalStr: "Rp 17.800.000",
+    subtotal: 2200000,
   },
 ];
 
 export default function UnpaidInvoice() {
-  const [modalOpen, setModalOpen] = useState(false);
   const [selectedInvoice, setSelectedInvoice] = useState<InvoiceData | null>(null);
+  const [dialogOpen, setDialogOpen] = useState(false);
 
   const handleView = (invoice: InvoiceData) => {
     setSelectedInvoice(invoice);
-    setModalOpen(true);
-  };
-
-  const handleClose = () => {
-    setModalOpen(false);
-    setSelectedInvoice(null);
+    setDialogOpen(true);
   };
 
   return (
@@ -116,13 +166,10 @@ export default function UnpaidInvoice() {
             <CalendarDropDown />
           </div>
           <button className="flex items-center space-x-2 px-4 py-2 bg-white/40 backdrop-blur-xl border border-white/30 rounded-lg shadow-md text-gray-700 hover:bg-white/60 transition-colors cursor-pointer">
-              <Funnel className="w-4 h-4" />
-            </button>
-            <button className="flex items-center space-x-2 px-4 py-2  bg-white/40 backdrop-blur-xl border border-white/30 rounded-lg shadow-md text-gray-700 hover:bg-white/60 transition-colors w-full md:w-auto cursor-pointer">
-              <Settings2 className="w-4 h-4" />
-            </button>
-            <button className="flex items-center space-x-2 px-4 py-2 bg-white/40 backdrop-blur-xl border border-white/30 rounded-lg shadow-md text-gray-700 hover:bg-white/60 transition-colors w-full md:w-auto cursor-pointer">
-              <Download className="w-4 h-4" />
+            <Funnel className="w-4 h-4" />
+          </button>
+          <button className="flex items-center space-x-2 px-4 py-2  bg-white/40 backdrop-blur-xl border border-white/30 rounded-lg shadow-md text-gray-700 hover:bg-white/60 transition-colors w-full md:w-auto cursor-pointer">
+            <Settings2 className="w-4 h-4" />
           </button>
         </div>
         <div className="bg-white/40 backdrop-blur-xl p-4 sm:p-8 rounded-xl shadow-md border border-white/30 w-full mb-8">
@@ -146,45 +193,45 @@ export default function UnpaidInvoice() {
                   <td className="px-4 py-2 whitespace-nowrap text-sm text-gray-700">{inv.dueDate}</td>
                   <td className="px-4 py-2 whitespace-nowrap text-sm text-gray-700">{inv.client}</td>
                   <td className="px-4 py-2 whitespace-nowrap text-sm text-gray-700">{inv.publisher}</td>
-                  <td className="px-4 py-2 whitespace-nowrap text-sm text-purple-700 font-semibold text-center">{inv.total.toLocaleString()}</td>
+                  <td className="px-4 py-2 whitespace-nowrap text-sm text-purple-700 font-semibold text-center">{new Intl.NumberFormat("id-ID", { style: "currency", currency: "IDR", minimumFractionDigits: 0, maximumFractionDigits: 0 }).format(inv.total)}</td>
                   <td className="px-4 py-2 whitespace-nowrap text-sm text-center">
-                    <button className="inline-flex items-center justify-center p-1 rounded hover:bg-purple-100 mr-1" title="Edit"><Pencil className="w-4 h-4 text-purple-600"/></button>
-                    <button className="inline-flex items-center justify-center p-1 rounded hover:bg-red-100 mr-1" title="Delete"><Trash2 className="w-4 h-4 text-red-600"/></button>
-                    <button className="inline-flex items-center justify-center p-1 rounded hover:bg-blue-100" title="View" onClick={() => handleView(inv)}><Eye className="w-4 h-4 text-blue-600"/></button>
+                    <button className="inline-flex items-center justify-center p-1 rounded hover:bg-purple-100 mr-1" title="Edit"><Pencil className="w-4 h-4 text-purple-600" /></button>
+                    <button className="inline-flex items-center justify-center p-1 rounded hover:bg-red-100 mr-1" title="Delete"><Trash2 className="w-4 h-4 text-red-600" /></button>
+                    <button className="inline-flex items-center justify-center p-1 rounded hover:bg-blue-100 mr-1" title="View" onClick={() => handleView(inv)}><Eye className="w-4 h-4 text-blue-600" /></button>
+                    <a href={`/invoice/${inv.invoiceNumber}`} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center p-1 rounded hover:bg-green-100" title="Open in New Tab"><ExternalLink className="w-4 h-4 text-green-600" /></a>
                   </td>
                 </tr>
               ))}
             </tbody>
           </table>
         </div>
-        {/* Modal Pop Up */}
-        {modalOpen && selectedInvoice && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm">
-            <div className="relative max-w-full w-[95vw] max-h-[95vh] flex items-center justify-center">
-              <button
-                onClick={handleClose}
-                className="absolute -top-4 -right-4 bg-white/80 rounded-full p-2 shadow hover:bg-white z-10"
-              >
-                <X className="w-5 h-5 text-gray-700" />
-              </button>
-              <div className="overflow-auto max-h-[90vh] p-2">
-                <InvoiceCard
+
+        {/* Dialog for Invoice Details */}
+        <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
+          <DialogContent className="max-w-6xl max-h-[90vh] overflow-hidden p-0">
+            <DialogHeader className="px-6 py-4 border-b">
+              <DialogTitle>Invoice Details - {selectedInvoice?.invoiceNumber}</DialogTitle>
+            </DialogHeader>
+            <div className="overflow-auto max-h-[80vh] p-6">
+              {selectedInvoice && (
+                <InvoiceTemplate
+                  invoiceNumber={selectedInvoice.invoiceNumber}
+                  date={selectedInvoice.date}
+                  dueDate={selectedInvoice.dueDate}
                   client={selectedInvoice.client}
                   clientAddress={selectedInvoice.clientAddress}
                   publisher={selectedInvoice.publisher}
                   publisherDesc={selectedInvoice.publisherDesc}
-                  invoiceDate={selectedInvoice.date}
-                  dueDate={selectedInvoice.dueDate}
+                  total={selectedInvoice.total}
                   status={selectedInvoice.status}
                   balance={selectedInvoice.balance}
                   items={selectedInvoice.items}
                   subtotal={selectedInvoice.subtotal}
-                  total={selectedInvoice.totalStr}
                 />
-              </div>
+              )}
             </div>
-          </div>
-        )}
+          </DialogContent>
+        </Dialog>
       </main>
     </div>
   )
