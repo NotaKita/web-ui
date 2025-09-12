@@ -1,39 +1,25 @@
-import { useParams } from 'react-router-dom'
 import { Calendar, FileText } from "lucide-react"
 
 const InvoiceDetail = () => {
-  const { invoiceNumber } = useParams<{ invoiceNumber: string }>()
 
   const invoiceItems = [
     {
       description: "Domain malangreproductivetc.id for 2 years",
-      unitCost: 600000,
+      unitCost: 330000,
       qty: 1,
-      price: 600000,
+      price: 330000,
     },
     {
-      description: "Gold weight conversion for each grocery category (24k) on dashboard and category page",
-      unitCost: 200000,
-      qty: 1,
-      price: 200000,
-    },
-    {
-      description: "Minimum purchase price for each different grocery category on penjualan page",
+      description: "Server hosting for 1 years",
       unitCost: 700000,
       qty: 1,
       price: 700000,
     },
     {
-      description: "Ringkasan laporan bulanan on dashboard",
-      unitCost: 200000,
+      description: "DP - 50% website development (admin portal & public site)",
+      unitCost: 2000000,
       qty: 1,
-      price: 200000,
-    },
-    {
-      description: "Filter Barang Terjual, belum terjual, lebur on Barang Masuk page",
-      unitCost: 200000,
-      qty: 1,
-      price: 200000,
+      price: 2000000,
     },
   ]
 
@@ -58,15 +44,15 @@ const InvoiceDetail = () => {
           <span className="text-md text-slate-500 font-light">Software Solutions</span>
         </div>
         <div className="text-right">
-          <h1 className="text-md font-bold text-gray-800 mb-2">Invoice {invoiceNumber}</h1>
+          <h1 className="text-md font-bold text-gray-800 mb-2">INV-20250910-0019X7A2</h1>
           <div className="text-xs text-gray-600 space-y-1">
             <div className="flex items-center justify-end space-x-2">
               <Calendar className="w-4 h-4" />
-              <span>Date of Invoice: 6/12/2025</span>
+              <span>Date of Invoice: 11/09/2025</span>
             </div>
             <div className="flex items-center justify-end space-x-2">
               <FileText className="w-4 h-4" />
-              <span>Due Date: 12/12/2025</span>
+              <span>Due Date: 18/09/2025</span>
             </div>
           </div>
         </div>
@@ -78,9 +64,9 @@ const InvoiceDetail = () => {
         <div>
           <h3 className="text-md font-semibold text-gray-800 mb-3">To:</h3>
           <div className="text-gray-600 space-y-1 text-xs">
-            <p className="font-medium">Toko Emas Sabar Jaya 2</p>
-            <p>Pasar Tumpang</p>
-            <p>Kabupaten Malang, Jawa Timur</p>
+            <p className="font-medium">Malang Reproductive Training Center</p>
+            <p>Jl. Telasih No. 1, Lowokwaru</p>
+            <p>Kota Malang, Jawa Timur</p>
             <p>Indonesia</p>
           </div>
         </div>
@@ -97,16 +83,16 @@ const InvoiceDetail = () => {
       </div>
 
       {/* Status */}
-      <div className="flex justify-between items-center mb-6 p-3 bg-red-50 rounded-lg border border-red-200">
+      <div className="flex justify-between items-center mb-6 p-3 bg-green-50 rounded-lg border border-green-200">
         <div>
           <span className="text-xs font-medium text-gray-600">Status: </span>
-          <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium text-red-800">
-            Unpaid
+          <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium text-green-800">
+            paid
           </span>
         </div>
         <div>
           <span className="text-xs font-medium text-gray-600">Balance: </span>
-          <span className="text-md font-bold text-red-600">{formatCurrency(total)}</span>
+          <span className="text-md font-bold text-green-600">{formatCurrency(total)}</span>
         </div>
       </div>
 
@@ -156,7 +142,7 @@ const InvoiceDetail = () => {
       <div className="border-t border-gray-100 pt-6">
         <div className="bg-gray-50 p-4 rounded-lg">
           <p className="text-xs text-gray-700">
-            <strong>Payment Terms:</strong> Payment is due within 6 days of invoice date. Late payments may incur
+            <strong>Payment Terms:</strong> Payment is due within 7 days of invoice date. Late payments may incur
             additional charges. Please contact us for any payment inquiries.
           </p>
         </div>
