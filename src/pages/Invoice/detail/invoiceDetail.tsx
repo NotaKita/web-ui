@@ -4,22 +4,34 @@ const InvoiceDetail = () => {
 
   const invoiceItems = [
     {
-      description: "Domain malangreproductivetc.id for 2 years",
-      unitCost: 330000,
+      description: "Toko Emas Sabar - Maximum price limit for the grocery items on each grocery category",
+      unitCost: 500000,
       qty: 1,
-      price: 330000,
+      price: 500000,
     },
     {
-      description: "Server hosting for 1 years",
-      unitCost: 700000,
+      description: "Toko Emas Sabar - Change the search algorithm on search customer (add capability to search by name and address combined on pembelian and penjualan page)",
+      unitCost: 50000,
       qty: 1,
-      price: 700000,
+      price: 50000,
     },
     {
-      description: "DP - 50% website development (admin portal & public site)",
-      unitCost: 2000000,
+      description: "Toko Sabar 2 - Change the search algorithm on search customer (add capability to search by name and address combined on pembelian and penjualan page)",
+      unitCost: 50000,
       qty: 1,
-      price: 2000000,
+      price: 50000,
+    },
+    {
+      description: "Sabar Jaya 1 - Change the search algorithm on search customer (add capability to search by name and address combined on pembelian and penjualan page)",
+      unitCost: 50000,
+      qty: 1,
+      price: 50000,
+    },
+    {
+      description: "Sabar Jaya 2 - Change the search algorithm on search customer (add capability to search by name and address combined on pembelian and penjualan page)",
+      unitCost: 50000,
+      qty: 1,
+      price: 50000,
     },
   ]
 
@@ -40,7 +52,7 @@ const InvoiceDetail = () => {
       {/* Header */}
       <div className="flex justify-between items-start mb-8">
         <div className="flex flex-col">
-          <span className="text-2xl text-slate-800 tracking-wide font-medium">KTech</span>
+          <span className="text-2xl text-slate-800 tracking-wide font-medium">DSS</span>
           <span className="text-md text-slate-500 font-light">Software Solutions</span>
         </div>
         <div className="text-right">
@@ -64,9 +76,9 @@ const InvoiceDetail = () => {
         <div>
           <h3 className="text-md font-semibold text-gray-800 mb-3">To:</h3>
           <div className="text-gray-600 space-y-1 text-xs">
-            <p className="font-medium">Malang Reproductive Training Center</p>
-            <p>Jl. Telasih No. 1, Lowokwaru</p>
-            <p>Kota Malang, Jawa Timur</p>
+            <p className="font-medium">Toko Emas Sabar Jaya 2</p>
+            <p>Pasar Tumpang</p>
+            <p>Kabupaten Malang, Jawa Timur</p>
             <p>Indonesia</p>
           </div>
         </div>
@@ -75,7 +87,7 @@ const InvoiceDetail = () => {
         <div>
           <h3 className="text-md font-semibold text-gray-800 mb-3">From:</h3>
           <div className="text-gray-600 space-y-1 text-xs">
-            <p className="font-medium">Rofiq - KTech Staff</p>
+            <p className="font-medium">Rofiq - DSS Staff</p>
             <p>Software Development Services</p>
             <p>System Integration & Consulting</p>
           </div>
@@ -83,16 +95,16 @@ const InvoiceDetail = () => {
       </div>
 
       {/* Status */}
-      <div className="flex justify-between items-center mb-6 p-3 bg-green-50 rounded-lg border border-green-200">
+      <div className="flex justify-between items-center mb-6 p-3 bg-red-50 rounded-lg border red-200">
         <div>
           <span className="text-xs font-medium text-gray-600">Status: </span>
-          <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium text-green-800">
-            paid
+          <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium text-red-800">
+            Unpaid
           </span>
         </div>
         <div>
           <span className="text-xs font-medium text-gray-600">Balance: </span>
-          <span className="text-md font-bold text-green-600">{formatCurrency(total)}</span>
+          <span className="text-md font-bold red-600">{formatCurrency(total)}</span>
         </div>
       </div>
 
@@ -147,7 +159,7 @@ const InvoiceDetail = () => {
           </p>
         </div>
         <div className="mt-4 text-center text-xs text-gray-500">
-          <p>Thank you for choosing KTech for your software development needs!</p>
+          <p>Thank you for choosing DSS for your software development needs!</p>
         </div>
       </div>
     </div>
