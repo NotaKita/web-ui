@@ -1,14 +1,12 @@
-import React from 'react'
 import { useParams } from 'react-router-dom'
-import { Calendar, FileText, Download } from "lucide-react"
+import { Calendar, FileText } from "lucide-react"
 
 const InvoiceDetail = () => {
   const { invoiceNumber } = useParams<{ invoiceNumber: string }>()
 
   const invoiceItems = [
     {
-      description:
-        "Daily report on dashboard and dedicated page for details with grocery list of daily report and transaction",
+      description: "Domain malangreproductivetc.id for 2 years",
       unitCost: 600000,
       qty: 1,
       price: 600000,
@@ -49,11 +47,6 @@ const InvoiceDetail = () => {
       minimumFractionDigits: 0,
       maximumFractionDigits: 0,
     }).format(amount)
-  }
-
-  const downloadPDF = () => {
-    // For now, just print the page since html2pdf.js had color parsing issues
-    window.print()
   }
 
   return (
