@@ -2,26 +2,15 @@ import { Calendar, FileText } from "lucide-react"
 
 const InvoiceDetail = () => {
 
-  const invoiceItems = [
-    {
-      description: "Domain malangreproductivetc.id for 2 years",
-      unitCost: 330000,
-      qty: 1,
-      price: 330000,
-    },
-    {
-      description: "Server hosting for 1 years",
-      unitCost: 700000,
-      qty: 1,
-      price: 700000,
-    },
-    {
-      description: "DP - 50% website development (admin portal & public site)",
-      unitCost: 2000000,
-      qty: 1,
-      price: 2000000,
-    },
-  ]
+ const invoiceItems = [
+  {
+    description: "COMPLETION - 50% Payment for website development (public site, admin portal, public site)",
+    unitCost: 2000000,
+    qty: 1,
+    price: 2000000,
+  },
+]
+
 
   const subtotal = invoiceItems.reduce((sum, item) => sum + item.price, 0)
   const total = subtotal
@@ -44,15 +33,15 @@ const InvoiceDetail = () => {
           <span className="text-md text-slate-500 font-light">Software Solutions</span>
         </div>
         <div className="text-right">
-          <h1 className="text-md font-bold text-gray-800 mb-2">INV-20250910-0019X7A2</h1>
+          <h1 className="text-md font-bold text-gray-800 mb-2">INV-20260105-0019XOA5</h1>
           <div className="text-xs text-gray-600 space-y-1">
             <div className="flex items-center justify-end space-x-2">
               <Calendar className="w-4 h-4" />
-              <span>Date of Invoice: 11/09/2025</span>
+              <span>Date of Invoice: 05/01/2026</span>
             </div>
             <div className="flex items-center justify-end space-x-2">
               <FileText className="w-4 h-4" />
-              <span>Due Date: 18/09/2025</span>
+              <span>Due Date: 12/01/2026</span>
             </div>
           </div>
         </div>
@@ -64,9 +53,9 @@ const InvoiceDetail = () => {
         <div>
           <h3 className="text-md font-semibold text-gray-800 mb-3">To:</h3>
           <div className="text-gray-600 space-y-1 text-xs">
-            <p className="font-medium">Malang Reproductive Training Center</p>
-            <p>Jl. Telasih No. 1, Lowokwaru</p>
-            <p>Kota Malang, Jawa Timur</p>
+            <p className="font-medium">Insan Medika Training Center</p>
+            <p>Jl. Simpang Maninjau Sel. Dalam I No.D2 D14, Sawojajar</p>
+            <p>Kec. Kedungkandang, Kota Malang, Jawa Timur</p>
             <p>Indonesia</p>
           </div>
         </div>
@@ -83,16 +72,16 @@ const InvoiceDetail = () => {
       </div>
 
       {/* Status */}
-      <div className="flex justify-between items-center mb-6 p-3 bg-green-50 rounded-lg border border-green-200">
+      <div className="flex justify-between items-center mb-6 p-3 bg-red-50 rounded-lg border red-200">
         <div>
           <span className="text-xs font-medium text-gray-600">Status: </span>
-          <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium text-green-800">
-            paid
+          <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium text-red-800">
+            Unpaid
           </span>
         </div>
         <div>
           <span className="text-xs font-medium text-gray-600">Balance: </span>
-          <span className="text-md font-bold text-green-600">{formatCurrency(total)}</span>
+          <span className="text-md font-bold red-600">{formatCurrency(total)}</span>
         </div>
       </div>
 
