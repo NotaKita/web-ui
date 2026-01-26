@@ -33,11 +33,11 @@ const InvoiceDetail = () => {
           <span className="text-md text-slate-500 font-light">Software Solutions</span>
         </div>
         <div className="text-right">
-          <h1 className="text-md font-bold text-gray-800 mb-2">INV-20260105-0019XOA5</h1>
+          <h1 className="text-md font-bold text-gray-800 mb-2">INV-20260108-0019XOA5</h1>
           <div className="text-xs text-gray-600 space-y-1">
             <div className="flex items-center justify-end space-x-2">
               <Calendar className="w-4 h-4" />
-              <span>Date of Invoice: 05/01/2026</span>
+              <span>Date of Invoice: 08/01/2026</span>
             </div>
             <div className="flex items-center justify-end space-x-2">
               <FileText className="w-4 h-4" />
