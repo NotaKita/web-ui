@@ -4,34 +4,16 @@ const InvoiceDetail = () => {
 
   const invoiceItems = [
     {
-      description: "Toko Emas Sabar - Maximum price limit for the grocery items on each grocery category",
-      unitCost: 500000,
+      description: "New Menu - Pembelian Barcode",
+      unitCost: 300000,
       qty: 1,
-      price: 500000,
+      price: 300000,
     },
     {
-      description: "Toko Emas Sabar - Change the search algorithm on search customer (add capability to search by name and address combined on pembelian and penjualan page)",
-      unitCost: 50000,
+      description: "New Menu - Pembelian Tanpa Surat",
+      unitCost: 300000,
       qty: 1,
-      price: 50000,
-    },
-    {
-      description: "Toko Sabar 2 - Change the search algorithm on search customer (add capability to search by name and address combined on pembelian and penjualan page)",
-      unitCost: 50000,
-      qty: 1,
-      price: 50000,
-    },
-    {
-      description: "Sabar Jaya 1 - Change the search algorithm on search customer (add capability to search by name and address combined on pembelian and penjualan page)",
-      unitCost: 50000,
-      qty: 1,
-      price: 50000,
-    },
-    {
-      description: "Sabar Jaya 2 - Change the search algorithm on search customer (add capability to search by name and address combined on pembelian and penjualan page)",
-      unitCost: 50000,
-      qty: 1,
-      price: 50000,
+      price: 300000,
     },
   ]
 
@@ -56,15 +38,15 @@ const InvoiceDetail = () => {
           <span className="text-md text-slate-500 font-light">Software Solutions</span>
         </div>
         <div className="text-right">
-          <h1 className="text-md font-bold text-gray-800 mb-2">INV-20250910-0019X7A2</h1>
+          <h1 className="text-md font-bold text-gray-800 mb-2">INV-20260127-0019X7A6</h1>
           <div className="text-xs text-gray-600 space-y-1">
             <div className="flex items-center justify-end space-x-2">
               <Calendar className="w-4 h-4" />
-              <span>Date of Invoice: 11/09/2025</span>
+              <span>Date of Invoice: 27/01/2026</span>
             </div>
             <div className="flex items-center justify-end space-x-2">
               <FileText className="w-4 h-4" />
-              <span>Due Date: 18/09/2025</span>
+              <span>Due Date: 03/02/2026</span>
             </div>
           </div>
         </div>
@@ -76,7 +58,7 @@ const InvoiceDetail = () => {
         <div>
           <h3 className="text-md font-semibold text-gray-800 mb-3">To:</h3>
           <div className="text-gray-600 space-y-1 text-xs">
-            <p className="font-medium">Toko Emas Sabar Jaya 2</p>
+            <p className="font-medium">Toko Emas Sabar Muda</p>
             <p>Pasar Tumpang</p>
             <p>Kabupaten Malang, Jawa Timur</p>
             <p>Indonesia</p>
