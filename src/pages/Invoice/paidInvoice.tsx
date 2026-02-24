@@ -1,13 +1,15 @@
-import React, { useState } from 'react';
-import { Eye, Search, Funnel, Settings2, ExternalLink } from "lucide-react";
+import React, { useState, useEffect } from 'react';
+import { Eye, Search, Funnel, Settings2, ExternalLink, Plus } from "lucide-react";
 import InvoiceTemplate from '@/components/InvoiceTemplate';
 import { CalendarDropDown } from '@/components/calendarDropDown';
+import { Button } from '@/components/ui/button';
 import {
   Dialog,
   DialogContent,
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
+import { invoiceAPI } from '@/lib/api';
 
 interface PaidInvoiceItem {
   description: string;
@@ -17,12 +19,12 @@ interface PaidInvoiceItem {
 }
 
 interface PaidInvoiceData {
+  id?: string;
   invoiceNumber: string;
   date: string;
-  paymentDate: string;
+  dueDate: string;
   client: string;
   publisher: string;
-  amountPaid: number;
   total: number;
   items: PaidInvoiceItem[];
   clientAddress: string;
@@ -32,115 +34,59 @@ interface PaidInvoiceData {
   subtotal: number;
 }
 
-const paidInvoices: PaidInvoiceData[] = [
-  {
-    invoiceNumber: "000101",
-    date: "5/10/2025",
-    paymentDate: "15/10/2025",
-    client: "Toko Emas Berkah Makmur",
-    publisher: "Rofiq - SUDS Staff",
-    amountPaid: 1500000,
-    total: 1500000,
-    items: [
-      {
-        description: "POS system development with inventory management",
-        unitCost: 800000,
-        qty: 1,
-        price: 800000,
-      },
-      {
-        description: "Customer management system integration",
-        unitCost: 400000,
-        qty: 1,
-        price: 400000,
-      },
-      {
-        description: "Staff training and system documentation",
-        unitCost: 300000,
-        qty: 1,
-        price: 300000,
-      },
-    ],
-    clientAddress: "Pasar Besar, Kota Malang, Jawa Timur, Indonesia",
-    publisherDesc: "Software Development Services, System Integration & Consulting",
-    status: "Paid",
-    balance: 0,
-    subtotal: 1500000,
-  },
-  {
-    invoiceNumber: "000102",
-    date: "12/10/2025",
-    paymentDate: "18/10/2025",
-    client: "CV. Teknologi Maju",
-    publisher: "Ahmad - SUDS Staff",
-    amountPaid: 2000000,
-    total: 2000000,
-    items: [
-      {
-        description: "Web application development with user authentication",
-        unitCost: 1200000,
-        qty: 1,
-        price: 1200000,
-      },
-      {
-        description: "Database design and optimization",
-        unitCost: 500000,
-        qty: 1,
-        price: 500000,
-      },
-      {
-        description: "API development and testing",
-        unitCost: 300000,
-        qty: 1,
-        price: 300000,
-      },
-    ],
-    clientAddress: "Jl. Soekarno Hatta No. 88, Surabaya, Jawa Timur, Indonesia",
-    publisherDesc: "Software Development Services, System Integration & Consulting",
-    status: "Paid",
-    balance: 0,
-    subtotal: 2000000,
-  },
-  {
-    invoiceNumber: "000103",
-    date: "20/10/2025",
-    paymentDate: "25/10/2025",
-    client: "PT. Digital Solusi",
-    publisher: "Sari - SUDS Staff",
-    amountPaid: 1750000,
-    total: 1750000,
-    items: [
-      {
-        description: "Mobile app development for delivery service",
-        unitCost: 1000000,
-        qty: 1,
-        price: 1000000,
-      },
-      {
-        description: "Admin dashboard development",
-        unitCost: 500000,
-        qty: 1,
-        price: 500000,
-      },
-      {
-        description: "Real-time tracking system implementation",
-        unitCost: 250000,
-        qty: 1,
-        price: 250000,
-      },
-    ],
-    clientAddress: "Jl. Gatot Subroto No. 234, Bandung, Jawa Barat, Indonesia",
-    publisherDesc: "Software Development Services, System Integration & Consulting",
-    status: "Paid",
-    balance: 0,
-    subtotal: 1750000,
-  },
-];
-
 export default function PaidInvoice() {
+  const [invoices, setInvoices] = useState<PaidInvoiceData[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
   const [selectedInvoice, setSelectedInvoice] = useState<PaidInvoiceData | null>(null);
   const [dialogOpen, setDialogOpen] = useState(false);
   const [search, setSearch] = useState("");
+
+  useEffect(() => {
+    fetchInvoices();
+  }, []);
+
+  const fetchInvoices = async () => {
+    setLoading(true);
+    setError(null);
+    try {
+      const response = await invoiceAPI.list();
+      if (response.success && Array.isArray(response.data)) {
+        // Transform backend data to match PaidInvoiceData structure
+        const transformedInvoices = response.data
+          .filter((inv: any) => inv.status.toLowerCase() === 'paid')
+          .map((inv: any) => ({
+            id: inv.id,
+            invoiceNumber: inv.invoice_number,
+            date: new Date(inv.created_at * 1000).toISOString().split('T')[0],
+            dueDate: new Date(inv.created_at * 1000).toISOString().split('T')[0],
+            client: 'Client Name',
+            clientAddress: 'Client Address',
+            publisher: 'Publisher',
+            publisherDesc: 'Service Description',
+            total: inv.amount,
+            status: inv.status,
+            balance: 0,
+            items: [
+              {
+                description: `Invoice ${inv.invoice_number}`,
+                unitCost: inv.amount,
+                qty: 1,
+                price: inv.amount,
+              }
+            ],
+            subtotal: inv.amount,
+          }));
+        setInvoices(transformedInvoices);
+      } else {
+        setError(response.message || 'Failed to fetch invoices');
+      }
+    } catch (err: any) {
+      setError(err.message || 'An error occurred');
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const handleView = (invoice: PaidInvoiceData) => {
     setSelectedInvoice(invoice);
@@ -148,11 +94,15 @@ export default function PaidInvoice() {
   };
 
   // Filter invoices by search
-  const filteredInvoices = paidInvoices.filter(inv =>
+  const filteredInvoices = invoices.filter(inv =>
     inv.invoiceNumber.toLowerCase().includes(search.toLowerCase()) ||
     inv.client.toLowerCase().includes(search.toLowerCase()) ||
     inv.publisher.toLowerCase().includes(search.toLowerCase())
   );
+
+  if (loading) {
+    return <div className="flex items-center justify-center min-h-screen">Loading...</div>;
+  }
 
   return (
     <div className="my-8 backdrop-blur-[32px] bg-white/20 border border-white/80 shadow-2xl shadow-white/30 ring-1 ring-white/40 rounded-[2rem] w-full max-w-[1600px] p-0 flex flex-col overflow-hidden relative transition-all duration-300 ease-in-out ml-0 before:content-[''] before:absolute before:inset-0 before:rounded-[2rem] before:pointer-events-none before:shadow-[inset_0_4px_64px_0_rgba(255,255,255,0.45)] mx-auto min-h-[400px]">
@@ -186,30 +136,32 @@ export default function PaidInvoice() {
               <tr>
                 <th className="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Invoice Number</th>
                 <th className="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Date</th>
-                <th className="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Payment Date</th>
                 <th className="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Client</th>
                 <th className="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Publisher at</th>
-                <th className="px-4 py-2 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Amount Paid</th>
                 <th className="px-4 py-2 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Total</th>
                 <th className="px-4 py-2 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Action</th>
               </tr>
             </thead>
             <tbody className="bg-white/30 divide-y divide-gray-200">
-              {filteredInvoices.map((inv, idx) => (
-                <tr key={idx} className="hover:bg-white/10">
-                  <td className="px-4 py-2 whitespace-nowrap text-sm font-medium text-gray-900">{inv.invoiceNumber}</td>
-                  <td className="px-4 py-2 whitespace-nowrap text-sm text-gray-700">{inv.date}</td>
-                  <td className="px-4 py-2 whitespace-nowrap text-sm text-gray-700">{inv.paymentDate}</td>
-                  <td className="px-4 py-2 whitespace-nowrap text-sm text-gray-700">{inv.client}</td>
-                  <td className="px-4 py-2 whitespace-nowrap text-sm text-gray-700">{inv.publisher}</td>
-                  <td className="px-4 py-2 whitespace-nowrap text-sm text-green-700 font-semibold text-center">{new Intl.NumberFormat("id-ID", { style: "currency", currency: "IDR", minimumFractionDigits: 0, maximumFractionDigits: 0 }).format(inv.amountPaid)}</td>
-                  <td className="px-4 py-2 whitespace-nowrap text-sm text-purple-700 font-semibold text-center">{new Intl.NumberFormat("id-ID", { style: "currency", currency: "IDR", minimumFractionDigits: 0, maximumFractionDigits: 0 }).format(inv.total)}</td>
-                  <td className="px-4 py-2 whitespace-nowrap text-sm text-center">
-                    <button className="inline-flex items-center justify-center p-1 rounded hover:bg-blue-100 mr-1" title="View" onClick={() => handleView(inv)}><Eye className="w-4 h-4 text-blue-600" /></button>
-                    <a href={`/invoice/${inv.invoiceNumber}`} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center p-1 rounded hover:bg-green-100" title="Open in New Tab"><ExternalLink className="w-4 h-4 text-green-600" /></a>
-                  </td>
+              {filteredInvoices.length === 0 ? (
+                <tr>
+                  <td colSpan={6} className="px-4 py-4 text-center text-gray-500">No paid invoices found</td>
                 </tr>
-              ))}
+              ) : (
+                filteredInvoices.map((inv, idx) => (
+                  <tr key={inv.id || idx} className="hover:bg-white/10">
+                    <td className="px-4 py-2 whitespace-nowrap text-sm font-medium text-gray-900">{inv.invoiceNumber}</td>
+                    <td className="px-4 py-2 whitespace-nowrap text-sm text-gray-700">{inv.date}</td>
+                    <td className="px-4 py-2 whitespace-nowrap text-sm text-gray-700">{inv.client}</td>
+                    <td className="px-4 py-2 whitespace-nowrap text-sm text-gray-700">{inv.publisher}</td>
+                    <td className="px-4 py-2 whitespace-nowrap text-sm text-purple-700 font-semibold text-center">{new Intl.NumberFormat("id-ID", { style: "currency", currency: "IDR", minimumFractionDigits: 0, maximumFractionDigits: 0 }).format(inv.total)}</td>
+                    <td className="px-4 py-2 whitespace-nowrap text-sm text-center">
+                      <button className="inline-flex items-center justify-center p-1 rounded hover:bg-blue-100 mr-1" title="View" onClick={() => handleView(inv)}><Eye className="w-4 h-4 text-blue-600" /></button>
+                      <a href={`/invoice/${inv.invoiceNumber}`} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center p-1 rounded hover:bg-green-100" title="Open in New Tab"><ExternalLink className="w-4 h-4 text-green-600" /></a>
+                    </td>
+                  </tr>
+                ))
+              )}
             </tbody>
           </table>
         </div>
@@ -225,7 +177,7 @@ export default function PaidInvoice() {
                 <InvoiceTemplate
                   invoiceNumber={selectedInvoice.invoiceNumber}
                   date={selectedInvoice.date}
-                  dueDate={selectedInvoice.paymentDate}
+                  dueDate={selectedInvoice.dueDate}
                   client={selectedInvoice.client}
                   clientAddress={selectedInvoice.clientAddress}
                   publisher={selectedInvoice.publisher}

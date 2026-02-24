@@ -41,24 +41,41 @@ export const authAPI = {
 
 // Company API
 export const companyAPI = {
-  create: async (name: string) => {
-    const res = await apiClient.post('/company', { name });
+  create: async (data: any) => {
+    const res = await apiClient.post('/company', data);
+    return res.data;
+  },
+  list: async () => {
+    const res = await apiClient.get('/company');
     return res.data;
   },
   get: async () => {
     const res = await apiClient.get('/company');
     return res.data;
   },
+  getById: async (id: string) => {
+    const res = await apiClient.get(`/company/${id}`);
+    return res.data;
+  },
+  update: async (id: string, data: any) => {
+    const res = await apiClient.put(`/company/${id}`, data);
+    return res.data;
+  },
+  delete: async (id: string) => {
+    const res = await apiClient.delete(`/company/${id}`);
+    return res.data;
+  },
 };
 
 // Invoice API
 export const invoiceAPI = {
-  create: async (invoice_number: string, amount: number, status: string) => {
-    const res = await apiClient.post('/invoice', { invoice_number, amount, status });
+  create: async (data: any) => {
+    const res = await apiClient.post('/invoice', data);
     return res.data;
   },
-  list: async () => {
-    const res = await apiClient.get('/invoice');
+  list: async (companyId?: string) => {
+    const url = companyId ? `/invoice?company_id=${companyId}` : '/invoice';
+    const res = await apiClient.get(url);
     return res.data;
   },
 };
