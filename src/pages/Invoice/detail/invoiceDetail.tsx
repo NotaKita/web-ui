@@ -4,35 +4,17 @@ const InvoiceDetail = () => {
 
   const invoiceItems = [
     {
-      description: "Menu Tanggungan - if the date filter used, its showing all data",
-      unitCost: 300000,
+      description: "New Menu - Pembelian Barcode",
+      unitCost: 350000,
       qty: 1,
-      price: 300000,
+      price: 350000,
     },
-    {
-      description: "Menu Lain lain - if the date filter used, its showing all data",
-      unitCost: 300000,
+        {
+      description: "New Menu - Pembelian Tanpa Surat",
+      unitCost: 350000,
       qty: 1,
-      price: 300000,
+      price: 350000,
     },
-    {
-      description: "Menu Laporan Pembelian Harian - print on specific date range and print options for the summary only or with details",
-      unitCost: 150000,
-      qty: 1,
-      price: 150000,
-    },
-    {
-      description: "Menu Laporan Penjualan Harian - print on specific date range and print options for the summary only or with details",
-      unitCost: 150000,
-      qty: 1,
-      price: 150000,
-    },
-    {
-      description: "Menu Barang Masuk - add capability to print item barcode",
-      unitCost: 100000,
-      qty: 1,
-      price: 100000,
-    } 
   ]
 
   const subtotal = invoiceItems.reduce((sum, item) => sum + item.price, 0)
@@ -56,7 +38,7 @@ const InvoiceDetail = () => {
           <span className="text-md text-slate-500 font-light">Software Solutions</span>
         </div>
         <div className="text-right">
-          <h1 className="text-md font-bold text-gray-800 mb-2">INV-20260224-0019X7A7</h1>
+          <h1 className="text-md font-bold text-gray-800 mb-2">INV-20260224-0019X7A8</h1>
           <div className="text-xs text-gray-600 space-y-1">
             <div className="flex items-center justify-end space-x-2">
               <Calendar className="w-4 h-4" />
@@ -76,7 +58,7 @@ const InvoiceDetail = () => {
         <div>
           <h3 className="text-md font-semibold text-gray-800 mb-3">To:</h3>
           <div className="text-gray-600 space-y-1 text-xs">
-            <p className="font-medium">Toko Emas Sabar Muda</p>
+            <p className="font-medium">Toko Emas Sabar Jaya 2</p>
             <p>Pasar Tumpang</p>
             <p>Kabupaten Malang, Jawa Timur</p>
             <p>Indonesia</p>
