@@ -4,17 +4,35 @@ const InvoiceDetail = () => {
 
   const invoiceItems = [
     {
-      description: "New Menu - Pembelian Barcode",
+      description: "Menu Tanggungan - if the date filter used, its showing all data",
       unitCost: 300000,
       qty: 1,
       price: 300000,
     },
     {
-      description: "New Menu - Pembelian Tanpa Surat",
+      description: "Menu Lain lain - if the date filter used, its showing all data",
       unitCost: 300000,
       qty: 1,
       price: 300000,
     },
+    {
+      description: "Menu Laporan Pembelian Harian - print on specific date range and print options for the summary only or with details",
+      unitCost: 150000,
+      qty: 1,
+      price: 150000,
+    },
+    {
+      description: "Menu Laporan Penjualan Harian - print on specific date range and print options for the summary only or with details",
+      unitCost: 150000,
+      qty: 1,
+      price: 150000,
+    },
+    {
+      description: "Menu Barang Masuk - add capability to print item barcode",
+      unitCost: 100000,
+      qty: 1,
+      price: 100000,
+    } 
   ]
 
   const subtotal = invoiceItems.reduce((sum, item) => sum + item.price, 0)
@@ -38,15 +56,15 @@ const InvoiceDetail = () => {
           <span className="text-md text-slate-500 font-light">Software Solutions</span>
         </div>
         <div className="text-right">
-          <h1 className="text-md font-bold text-gray-800 mb-2">INV-20260127-0019X7A6</h1>
+          <h1 className="text-md font-bold text-gray-800 mb-2">INV-20260224-0019X7A7</h1>
           <div className="text-xs text-gray-600 space-y-1">
             <div className="flex items-center justify-end space-x-2">
               <Calendar className="w-4 h-4" />
-              <span>Date of Invoice: 27/01/2026</span>
+              <span>Date of Invoice: 24/02/2026</span>
             </div>
             <div className="flex items-center justify-end space-x-2">
               <FileText className="w-4 h-4" />
-              <span>Due Date: 03/02/2026</span>
+              <span>Due Date: 03/03/2026</span>
             </div>
           </div>
         </div>
@@ -77,7 +95,7 @@ const InvoiceDetail = () => {
       </div>
 
       {/* Status */}
-      <div className="flex justify-between items-center mb-6 p-3 bg-red-50 rounded-lg border red-200">
+      <div className="flex justify-between items-center mb-6 p-3 bg-red-50 rounded-lg border border-red-200">
         <div>
           <span className="text-xs font-medium text-gray-600">Status: </span>
           <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium text-red-800">
@@ -86,7 +104,7 @@ const InvoiceDetail = () => {
         </div>
         <div>
           <span className="text-xs font-medium text-gray-600">Balance: </span>
-          <span className="text-md font-bold red-600">{formatCurrency(total)}</span>
+          <span className="text-md font-bold text-red-600">{formatCurrency(total)}</span>
         </div>
       </div>
 
@@ -125,7 +143,7 @@ const InvoiceDetail = () => {
             <span className="text-gray-600">Subtotal:</span>
             <span className="font-medium">{formatCurrency(subtotal)}</span>
           </div>
-          <div className="flex justify-between text-">
+          <div className="flex justify-between text-sm">
             <span className="text-md font-bold text-gray-800">Total:</span>
             <span className="text-md font-bold text-gray-800">{formatCurrency(total)}</span>
           </div>
