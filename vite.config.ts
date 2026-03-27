@@ -10,7 +10,7 @@ export default defineConfig(({ mode }) => {
   return {
     server: {
       host: env.VITE_HOST || '0.0.0.0',
-      port: parseInt(env.VITE_PORT) || 5173,
+      port: parseInt(env.VITE_PORT) || 5175,
       allowedHosts: ['notakita.web.id'], // 👈 allow your domain
     },
     preview: {
