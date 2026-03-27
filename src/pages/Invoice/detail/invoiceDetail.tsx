@@ -4,7 +4,13 @@ const InvoiceDetail = () => {
 
  const invoiceItems = [
   {
-    description: "COMPLETION - 50% Payment for website development (public site, admin portal, public site)",
+    description: "Domain, Server, backup (1 year)",
+    unitCost: 950000,
+    qty: 1,
+    price: 950000,
+  },
+  {
+    description: "DP - 50% website development (admin portal & user portal) and maintenance (1 year)",
     unitCost: 2000000,
     qty: 1,
     price: 2000000,
@@ -33,15 +39,15 @@ const InvoiceDetail = () => {
           <span className="text-md text-slate-500 font-light">Software Solutions</span>
         </div>
         <div className="text-right">
-          <h1 className="text-md font-bold text-gray-800 mb-2">INV-20260108-0019XOA5</h1>
+          <h1 className="text-md font-bold text-gray-800 mb-2">INV-20260327-0019XOA6</h1>
           <div className="text-xs text-gray-600 space-y-1">
             <div className="flex items-center justify-end space-x-2">
               <Calendar className="w-4 h-4" />
-              <span>Date of Invoice: 08/01/2026</span>
+              <span>Date of Invoice: 27/03/2026</span>
             </div>
             <div className="flex items-center justify-end space-x-2">
               <FileText className="w-4 h-4" />
-              <span>Due Date: 12/01/2026</span>
+              <span>Due Date: 03/04/2026</span>
             </div>
           </div>
         </div>
@@ -53,9 +59,8 @@ const InvoiceDetail = () => {
         <div>
           <h3 className="text-md font-semibold text-gray-800 mb-3">To:</h3>
           <div className="text-gray-600 space-y-1 text-xs">
-            <p className="font-medium">Insan Medika Training Center</p>
-            <p>Jl. Simpang Maninjau Sel. Dalam I No.D2 D14, Sawojajar</p>
-            <p>Kec. Kedungkandang, Kota Malang, Jawa Timur</p>
+            <p className="font-medium">Next Doc Academy</p>
+            <p>Kota Malang, Jawa Timur</p>
             <p>Indonesia</p>
           </div>
         </div>
