@@ -2,20 +2,20 @@ import { Calendar, FileText } from "lucide-react"
 
 const InvoiceDetail = () => {
 
- const invoiceItems = [
+const invoiceItems = [
   {
-    description: "Domain, Server, backup (1 year)",
-    unitCost: 950000,
+    description: "Monitoring System (1 year)",
+    unitCost: 500000,
     qty: 1,
-    price: 950000,
+    price: 500000,
   },
   {
-    description: "DP - 50% website development (admin portal & user portal) and maintenance (1 year)",
+    description: "Final Payment - 50% Tryout Platform Development (Admin & User Portal)",
     unitCost: 2000000,
     qty: 1,
     price: 2000000,
   },
-]
+];
 
 
   const subtotal = invoiceItems.reduce((sum, item) => sum + item.price, 0)
@@ -39,15 +39,15 @@ const InvoiceDetail = () => {
           <span className="text-md text-slate-500 font-light">Software Solutions</span>
         </div>
         <div className="text-right">
-          <h1 className="text-md font-bold text-gray-800 mb-2">INV-20260327-0019XOA6</h1>
+          <h1 className="text-md font-bold text-gray-800 mb-2">INV-20260327-0019XOA7</h1>
           <div className="text-xs text-gray-600 space-y-1">
             <div className="flex items-center justify-end space-x-2">
               <Calendar className="w-4 h-4" />
-              <span>Date of Invoice: 27/03/2026</span>
+              <span>Date of Invoice: 04/05/2026</span>
             </div>
             <div className="flex items-center justify-end space-x-2">
               <FileText className="w-4 h-4" />
-              <span>Due Date: 03/04/2026</span>
+              <span>Due Date: 11/05/2026</span>
             </div>
           </div>
         </div>
