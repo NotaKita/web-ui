@@ -4,16 +4,10 @@ const InvoiceDetail = () => {
 
   const invoiceItems = [
     {
-      description: "New Menu - Pembelian Barcode",
-      unitCost: 350000,
+      description: "Unlimited Data Preview and print functionality when date filter is used on Barang Masuk menu",
+      unitCost: 200000,
       qty: 1,
-      price: 350000,
-    },
-        {
-      description: "New Menu - Pembelian Tanpa Surat",
-      unitCost: 350000,
-      qty: 1,
-      price: 350000,
+      price: 200000,
     },
   ]
 
@@ -38,15 +32,15 @@ const InvoiceDetail = () => {
           <span className="text-md text-slate-500 font-light">Software Solutions</span>
         </div>
         <div className="text-right">
-          <h1 className="text-md font-bold text-gray-800 mb-2">INV-20260224-0019X7A8</h1>
+          <h1 className="text-md font-bold text-gray-800 mb-2">INV-20260509-0012X7A9</h1>
           <div className="text-xs text-gray-600 space-y-1">
             <div className="flex items-center justify-end space-x-2">
               <Calendar className="w-4 h-4" />
-              <span>Date of Invoice: 24/02/2026</span>
+              <span>Date of Invoice: 19/05/2026</span>
             </div>
             <div className="flex items-center justify-end space-x-2">
               <FileText className="w-4 h-4" />
-              <span>Due Date: 03/03/2026</span>
+              <span>Due Date: 26/05/2026</span>
             </div>
           </div>
         </div>
