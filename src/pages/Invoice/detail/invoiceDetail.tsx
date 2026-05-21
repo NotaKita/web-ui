@@ -4,7 +4,61 @@ const InvoiceDetail = () => {
 
   const invoiceItems = [
     {
-      description: "Addition of a weight-based filtering feature in the liabilities menu to simplify data sorting, improve transaction tracking, and enhance operational efficiency.",
+      description: "Enhanced customer search with address-based filtering capability.",
+      unitCost: 100000,
+      qty: 1,
+      price: 100000,
+    },
+    {
+      description: "Purchase report module implementation.",
+      unitCost: 600000,
+      qty: 1,
+      price: 600000,
+    },
+    {
+      description: "Sales report module implementation.",
+      unitCost: 600000,
+      qty: 1,
+      price: 600000,
+    },
+    {
+      description: "Additional columns added to report views.",
+      unitCost: 150000,
+      qty: 1,
+      price: 150000,
+    },
+    {
+      description: "Bulk direct print functionality in the incoming goods menu.",
+      unitCost: 150000,
+      qty: 1,
+      price: 150000,
+    },
+    {
+      description: "Store weight and weight discrepancy columns added to the cash report.",
+      unitCost: 200000,
+      qty: 1,
+      price: 200000,
+    },
+    {
+      description: "Auto-focus behavior on purchase menu without document entry.",
+      unitCost: 100000,
+      qty: 1,
+      price: 100000,
+    },
+    {
+      description: "Bulk print feature in incoming goods menu supporting young gold and old gold modes.",
+      unitCost: 500000,
+      qty: 1,
+      price: 500000,
+    },
+    {
+      description: "Automatic uppercase conversion for all user input fields.",
+      unitCost: 100000,
+      qty: 1,
+      price: 100000,
+    },
+    {
+      description: "Modified unit category and total weight calculation for 24K gold (factor: 100 → 108) in young gold and old gold modes.",
       unitCost: 150000,
       qty: 1,
       price: 150000,
