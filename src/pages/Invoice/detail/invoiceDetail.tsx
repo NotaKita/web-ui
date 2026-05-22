@@ -4,11 +4,24 @@ const InvoiceDetail = () => {
 
   const invoiceItems = [
     {
-      description: "Unlimited Data Preview and print functionality when date filter is used on Barang Masuk menu",
-      unitCost: 200000,
+      description: "adjustment on incoming grocery menu: filter, printing, and report",
+      unitCost: 350000,
       qty: 1,
-      price: 200000,
+      price: 350000,
     },
+    {
+      description: "adjustment on input grocery: save last gold config as default params",
+      unitCost: 100000,
+      qty: 1,
+      price: 100000,
+    },
+    {
+      description: "new system and menu for rechecking grocery that available in the shop",
+      unitCost: 750000,
+      qty: 1,
+      price: 750000,
+    },
+    
   ]
 
   const subtotal = invoiceItems.reduce((sum, item) => sum + item.price, 0)
