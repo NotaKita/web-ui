@@ -57,11 +57,18 @@ const InvoiceDetail = () => {
       qty: 1,
       price: 100000,
     },
-    {
-      description: "Modified unit category and total weight calculation for 24K gold (factor: 100 → 108) in young gold and old gold modes.",
-      unitCost: 150000,
+
+        {
+      description: "New Menu: purchasing from barcode scanning with support for young gold and old gold modes.",
+      unitCost: 500000,
       qty: 1,
-      price: 150000,
+      price: 500000,
+    },
+        {
+      description: "New Menu: purchasing without barcode scanning with support for young gold and old gold modes.",
+      unitCost: 500000,
+      qty: 1,
+      price: 500000,
     },
   ]
 
