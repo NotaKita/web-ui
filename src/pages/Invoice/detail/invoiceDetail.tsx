@@ -4,22 +4,10 @@ const InvoiceDetail = () => {
 
   const invoiceItems = [
     {
-      description: "Development and implementation of a customer ranking and classification feature to improve customer segmentation and transaction monitoring.",
-      unitCost: 1000000,
+      description: "Modified unit category and total weight calculation for 24K gold (factor: 100 → 108) in young gold and old gold modes.",
+      unitCost: 150000,
       qty: 1,
-      price: 1000000,
-    },
-    {
-      description: "Development of a new pricing management menu allowing administrators to define minimum and maximum price ranges for all product categories sharing the same gold purity level.",
-      unitCost: 500000,
-      qty: 1,
-      price: 500000,
-    },
-    {
-      description: "Implementation of a customer phone number search functionality to accelerate sales transactions and improve customer data retrieval efficiency.",
-      unitCost: 100000,
-      qty: 1,
-      price: 100000,
+      price: 150000,
     },
   ]
 
