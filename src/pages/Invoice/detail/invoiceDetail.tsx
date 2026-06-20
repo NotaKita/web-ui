@@ -28,12 +28,6 @@ const InvoiceDetail = () => {
       price: 150000,
     },
     {
-      description: "Bulk direct print functionality in the incoming goods menu.",
-      unitCost: 150000,
-      qty: 1,
-      price: 150000,
-    },
-    {
       description: "Store weight and weight discrepancy columns added to the cash report.",
       unitCost: 200000,
       qty: 1,
@@ -53,9 +47,9 @@ const InvoiceDetail = () => {
     },
     {
       description: "Automatic uppercase conversion for all user input fields.",
-      unitCost: 100000,
+      unitCost: 150000,
       qty: 1,
-      price: 100000,
+      price: 150000,
     },
 
         {
