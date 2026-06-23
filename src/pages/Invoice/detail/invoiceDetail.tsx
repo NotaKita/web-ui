@@ -4,22 +4,22 @@ const InvoiceDetail = () => {
 
   const invoiceItems = [
     {
-      description: "adjustment on incoming grocery menu: filter, printing, and report",
-      unitCost: 350000,
+      description: "create new feature to Adjust all menu and system to support lebur and gold bar section",
+      unitCost: 1200000,
       qty: 1,
-      price: 350000,
+      price: 1200000,
     },
     {
-      description: "adjustment on input grocery: save last gold config as default params",
-      unitCost: 100000,
+      description: "integration of new system that support lebur and goldbar section on sabarjaya 2",
+      unitCost: 800000,
       qty: 1,
-      price: 100000,
+      price: 800000,
     },
     {
-      description: "new system and menu for rechecking grocery that available in the shop",
-      unitCost: 750000,
+      description: "integration of new system that support lebur and goldbar section on sabarmuda",
+      unitCost: 800000,
       qty: 1,
-      price: 750000,
+      price: 800000,
     },
     
   ]
@@ -45,15 +45,15 @@ const InvoiceDetail = () => {
           <span className="text-md text-slate-500 font-light">Software Solutions</span>
         </div>
         <div className="text-right">
-          <h1 className="text-md font-bold text-gray-800 mb-2">INV-20260509-0012X7A9</h1>
+          <h1 className="text-md font-bold text-gray-800 mb-2">INV-20260620-0012X7C1</h1>
           <div className="text-xs text-gray-600 space-y-1">
             <div className="flex items-center justify-end space-x-2">
               <Calendar className="w-4 h-4" />
-              <span>Date of Invoice: 19/05/2026</span>
+              <span>Date of Invoice: 20/06/2026</span>
             </div>
             <div className="flex items-center justify-end space-x-2">
               <FileText className="w-4 h-4" />
-              <span>Due Date: 26/05/2026</span>
+              <span>Due Date: 27/06/2026</span>
             </div>
           </div>
         </div>
