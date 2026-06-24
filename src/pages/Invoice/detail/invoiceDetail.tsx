@@ -4,16 +4,16 @@ const InvoiceDetail = () => {
 
 const invoiceItems = [
   {
-    description: "Server upgrade for new features and performance improvements",
+    description: "main landing page development for nextdoc.id (50% down payment)",
+    unitCost: 2000000,
+    qty: 1,
+    price: 2000000,
+  },
+  {
+    description: "1 year server rent",
     unitCost: 600000,
     qty: 1,
     price: 600000,
-  },
-  {
-    description: "Class, User module integration, file management, education video preview, and others related with the new features",
-    unitCost: 2500000,
-    qty: 1,
-    price: 2500000,
   },
 ];
 
@@ -39,15 +39,15 @@ const invoiceItems = [
           <span className="text-md text-slate-500 font-light">Software Solutions</span>
         </div>
         <div className="text-right">
-          <h1 className="text-md font-bold text-gray-800 mb-2">INV-20260327-0019XOA9</h1>
+          <h1 className="text-md font-bold text-gray-800 mb-2">INV-20260623-0019XOI2</h1>
           <div className="text-xs text-gray-600 space-y-1">
             <div className="flex items-center justify-end space-x-2">
               <Calendar className="w-4 h-4" />
-              <span>Date of Invoice: 19/05/2026</span>
+              <span>Date of Invoice: 23/06/2026</span>
             </div>
             <div className="flex items-center justify-end space-x-2">
               <FileText className="w-4 h-4" />
-              <span>Due Date: 26/05/2026</span>
+              <span>Due Date: 30/06/2026</span>
             </div>
           </div>
         </div>
