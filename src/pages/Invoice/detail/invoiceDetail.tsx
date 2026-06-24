@@ -4,24 +4,29 @@ const InvoiceDetail = () => {
 
   const invoiceItems = [
     {
-      description: "create new feature to Adjust all menu and system to support lebur and gold bar section",
-      unitCost: 1200000,
-      qty: 1,
-      price: 1200000,
-    },
-    {
-      description: "integration of new system that support lebur and goldbar section on sabarjaya 2",
+      description: "integration of new system that support lebur and goldbar section on sabarjaya 1",
       unitCost: 800000,
       qty: 1,
       price: 800000,
     },
     {
-      description: "integration of new system that support lebur and goldbar section on sabarmuda",
+      description: "integration of new system that support lebur and goldbar section on toko emas sabar",
       unitCost: 800000,
       qty: 1,
       price: 800000,
     },
-    
+    {
+      description: "integration of new system that support lebur and goldbar section on toko emas sabarmas",
+      unitCost: 1000000,
+      qty: 1,
+      price: 1000000,
+    },
+    {
+      description: "integration of new system that support lebur and goldbar section on toko emas sabar 2",
+      unitCost: 1000000,
+      qty: 1,
+      price: 1000000,
+    },
   ]
 
   const subtotal = invoiceItems.reduce((sum, item) => sum + item.price, 0)
@@ -45,15 +50,15 @@ const InvoiceDetail = () => {
           <span className="text-md text-slate-500 font-light">Software Solutions</span>
         </div>
         <div className="text-right">
-          <h1 className="text-md font-bold text-gray-800 mb-2">INV-20260620-0012X7C1</h1>
+          <h1 className="text-md font-bold text-gray-800 mb-2">INV-20260624-0012X7C2</h1>
           <div className="text-xs text-gray-600 space-y-1">
             <div className="flex items-center justify-end space-x-2">
               <Calendar className="w-4 h-4" />
-              <span>Date of Invoice: 20/06/2026</span>
+              <span>Date of Invoice: 24/06/2026</span>
             </div>
             <div className="flex items-center justify-end space-x-2">
               <FileText className="w-4 h-4" />
-              <span>Due Date: 27/06/2026</span>
+              <span>Due Date: 30/06/2026</span>
             </div>
           </div>
         </div>
