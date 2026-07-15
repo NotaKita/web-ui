@@ -4,10 +4,10 @@ const InvoiceDetail = () => {
 
   const invoiceItems = [
     {
-      description: "Modified unit category and total weight calculation for 24K gold (factor: 100 → 108) in young gold and old gold modes.",
-      unitCost: 150000,
+      description: "Yearly subscription for the domain, server, backup, and maintenance of the application for 1 year",
+      unitCost: 3000000,
       qty: 1,
-      price: 150000,
+      price: 3000000,
     },
   ]
 
@@ -32,15 +32,15 @@ const InvoiceDetail = () => {
           <span className="text-md text-slate-500 font-light">Software Solutions</span>
         </div>
         <div className="text-right">
-          <h1 className="text-md font-bold text-gray-800 mb-2">INV-20260624-0019X7B4</h1>
+          <h1 className="text-md font-bold text-gray-800 mb-2">INV-20260624-0019X7B5</h1>
           <div className="text-xs text-gray-600 space-y-1">
             <div className="flex items-center justify-end space-x-2">
               <Calendar className="w-4 h-4" />
-              <span>Date of Invoice: 24/06/2026</span>
+              <span>Date of Invoice: 15/07/2026</span>
             </div>
             <div className="flex items-center justify-end space-x-2">
               <FileText className="w-4 h-4" />
-              <span>Due Date: 30/06/2026</span>
+              <span>Due Date: 15/07/2026</span>
             </div>
           </div>
         </div>
