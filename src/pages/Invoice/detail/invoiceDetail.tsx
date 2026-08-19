@@ -4,28 +4,16 @@ const InvoiceDetail = () => {
 
   const invoiceItems = [
     {
-      description: "integration of new system that support lebur and goldbar section on sabarjaya 1",
-      unitCost: 800000,
+      description: "Sales note menu that records all tables from every sales agent, covering credit notes (bon), payments, and CT.",
+      unitCost: 600000,
       qty: 1,
-      price: 800000,
+      price: 600000,
     },
     {
-      description: "integration of new system that support lebur and goldbar section on toko emas sabar",
-      unitCost: 800000,
+      description: "Sales note accumulation report that consolidates the reports of all sales agents into a single centralized report.",
+      unitCost: 200000,
       qty: 1,
-      price: 800000,
-    },
-    {
-      description: "integration of new system that support lebur and goldbar section on toko emas sabarmas",
-      unitCost: 1000000,
-      qty: 1,
-      price: 1000000,
-    },
-    {
-      description: "integration of new system that support lebur and goldbar section on toko emas sabar 2",
-      unitCost: 1000000,
-      qty: 1,
-      price: 1000000,
+      price: 200000,
     },
   ]
 
@@ -50,15 +38,15 @@ const InvoiceDetail = () => {
           <span className="text-md text-slate-500 font-light">Software Solutions</span>
         </div>
         <div className="text-right">
-          <h1 className="text-md font-bold text-gray-800 mb-2">INV-20260624-0012X7C2</h1>
+          <h1 className="text-md font-bold text-gray-800 mb-2">INV-20260819-0013J8R5</h1>
           <div className="text-xs text-gray-600 space-y-1">
             <div className="flex items-center justify-end space-x-2">
               <Calendar className="w-4 h-4" />
-              <span>Date of Invoice: 24/06/2026</span>
+              <span>Date of Invoice: 19/08/2026</span>
             </div>
             <div className="flex items-center justify-end space-x-2">
               <FileText className="w-4 h-4" />
-              <span>Due Date: 30/06/2026</span>
+              <span>Due Date: 26/08/2026</span>
             </div>
           </div>
         </div>
