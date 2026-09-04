@@ -1,19 +1,26 @@
 import { Calendar, FileText } from "lucide-react"
+import Lampiran from "./lampiran"
 
 const InvoiceDetail = () => {
 
 const invoiceItems = [
   {
-    description: "main landing page development for nextdoc.id (50% down payment)",
-    unitCost: 2000000,
+    description: "1 year server rent",
+    unitCost: 1065600,
     qty: 1,
-    price: 2000000,
+    price: 1065600,
   },
   {
-    description: "1 year server rent",
-    unitCost: 600000,
+    description: "1 year maintenance",
+    unitCost: 200000,
     qty: 1,
-    price: 600000,
+    price: 200000,
+  },
+  {
+    description: "1 year backup",
+    unitCost: 100000,
+    qty: 1,
+    price: 100000,
   },
 ];
 
@@ -31,7 +38,8 @@ const invoiceItems = [
   }
 
   return (
-    <div id="invoice-content" className="max-w-4xl mx-auto p-8 bg-white">
+    <>
+      <div id="invoice-content" className="max-w-4xl mx-auto p-8 bg-white">
       {/* Header */}
       <div className="flex justify-between items-start mb-8">
         <div className="flex flex-col">
@@ -39,15 +47,15 @@ const invoiceItems = [
           <span className="text-md text-slate-500 font-light">Software Solutions</span>
         </div>
         <div className="text-right">
-          <h1 className="text-md font-bold text-gray-800 mb-2">INV-20260623-0019XOI2</h1>
+          <h1 className="text-md font-bold text-gray-800 mb-2">INV-20260904-0019XOI2</h1>
           <div className="text-xs text-gray-600 space-y-1">
             <div className="flex items-center justify-end space-x-2">
               <Calendar className="w-4 h-4" />
-              <span>Date of Invoice: 23/06/2026</span>
+              <span>Date of Invoice: 04/09/2026</span>
             </div>
             <div className="flex items-center justify-end space-x-2">
               <FileText className="w-4 h-4" />
-              <span>Due Date: 30/06/2026</span>
+              <span>Due Date: 11/09/2026</span>
             </div>
           </div>
         </div>
@@ -59,8 +67,10 @@ const invoiceItems = [
         <div>
           <h3 className="text-md font-semibold text-gray-800 mb-3">To:</h3>
           <div className="text-gray-600 space-y-1 text-xs">
-            <p className="font-medium">Next Doc Academy</p>
-            <p>Kota Malang, Jawa Timur</p>
+            <p className="font-medium">MRTC</p>
+            <p>Jl. Telasih No.1, Lowokwaru</p>
+            <p>Kec. Lowokwaru, Kota Malang</p>
+            <p>Jawa Timur 65141</p>
             <p>Indonesia</p>
           </div>
         </div>
@@ -144,7 +154,11 @@ const invoiceItems = [
           <p>Thank you for choosing KTech for your software development needs!</p>
         </div>
       </div>
-    </div>
+      </div>
+
+      {/* Lampiran - tercetak sebagai halaman setelah invoice */}
+      <Lampiran />
+    </>
   )
 }
 
