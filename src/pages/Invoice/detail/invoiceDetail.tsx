@@ -4,16 +4,25 @@ const InvoiceDetail = () => {
 
   const invoiceItems = [
     {
-      description: "Sales note menu that records all tables from every sales agent, covering credit notes (bon), payments, and CT.",
-      unitCost: 600000,
-      qty: 1,
-      price: 600000,
-    },
-    {
-      description: "Sales note accumulation report that consolidates the reports of all sales agents into a single centralized report.",
+      description:
+        "Capitalized input standardization across all menus for search, data creation, and data editing (Purchase Without Note, Barcode Purchase, Purchase, Receivables, Service, Miscellaneous, Wash History, Incoming Goods, Outgoing Goods, Item Stock, Melting History, Customer Data, and Supplier Data).",
       unitCost: 200000,
       qty: 1,
       price: 200000,
+    },
+    {
+      description:
+        "Automatic cursor positioning after each transaction on the Purchase Without Note page to accelerate admin workflow.",
+      unitCost: 75000,
+      qty: 1,
+      price: 75000,
+    },
+    {
+      description:
+        "Automatic cursor positioning after each transaction on the Barcode Purchase page to accelerate admin workflow.",
+      unitCost: 75000,
+      qty: 1,
+      price: 75000,
     },
   ]
 
@@ -38,15 +47,15 @@ const InvoiceDetail = () => {
           <span className="text-md text-slate-500 font-light">Software Solutions</span>
         </div>
         <div className="text-right">
-          <h1 className="text-md font-bold text-gray-800 mb-2">INV-20260819-0013J8R6</h1>
+          <h1 className="text-md font-bold text-gray-800 mb-2">INV-20260901-0013J8R6</h1>
           <div className="text-xs text-gray-600 space-y-1">
             <div className="flex items-center justify-end space-x-2">
               <Calendar className="w-4 h-4" />
-              <span>Date of Invoice: 31/08/2026</span>
+              <span>Date of Invoice: 01/09/2026</span>
             </div>
             <div className="flex items-center justify-end space-x-2">
               <FileText className="w-4 h-4" />
-              <span>Due Date: 07/09/2026</span>
+              <span>Due Date: 08/09/2026</span>
             </div>
           </div>
         </div>
@@ -58,7 +67,7 @@ const InvoiceDetail = () => {
         <div>
           <h3 className="text-md font-semibold text-gray-800 mb-3">To:</h3>
           <div className="text-gray-600 space-y-1 text-xs">
-            <p className="font-medium">Toko Emas Sabar Muda</p>
+            <p className="font-medium">Toko Emas Sabar Jaya 1</p>
             <p>Pasar Tumpang</p>
             <p>Kabupaten Malang, Jawa Timur</p>
             <p>Indonesia</p>
