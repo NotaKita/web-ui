@@ -6,9 +6,9 @@ const InvoiceDetail = () => {
     {
       description:
         "Capitalized input standardization across all menus for search, data creation, and data editing (Purchase Without Note, Barcode Purchase, Purchase, Receivables, Service, Miscellaneous, Wash History, Incoming Goods, Outgoing Goods, Item Stock, Melting History, Customer Data, and Supplier Data).",
-      unitCost: 200000,
+      unitCost: 250000,
       qty: 1,
-      price: 200000,
+      price: 250000,
     },
     {
       description:
@@ -51,11 +51,11 @@ const InvoiceDetail = () => {
           <div className="text-xs text-gray-600 space-y-1">
             <div className="flex items-center justify-end space-x-2">
               <Calendar className="w-4 h-4" />
-              <span>Date of Invoice: 01/09/2026</span>
+              <span>Date of Invoice: 05/09/2026</span>
             </div>
             <div className="flex items-center justify-end space-x-2">
               <FileText className="w-4 h-4" />
-              <span>Due Date: 08/09/2026</span>
+              <span>Due Date: 12/09/2026</span>
             </div>
           </div>
         </div>
